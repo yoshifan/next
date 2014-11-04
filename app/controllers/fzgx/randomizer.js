@@ -42,31 +42,82 @@ var ships = [{ id: 0, name: 'Dark Schneider' },
 { id: 39, name: 'Rolling Turtle' },
 { id: 40, name: 'Rainbow Phoenix' }];
 
+var maps = [{ id: 0, name: "Mute City Twist Road" },
+{ id: 1, name: "Casino Palace Split Oval" },
+{ id: 2, name: "Sand Ocean Surface Slopeide" },
+{ id: 3, name: "Lightning Loop Cross" },
+{ id: 4, name: "Aeropolis Multiplex" },
+{ id: 5, name: "Big Blue Drift Highway" },
+{ id: 6, name: "Port Town Aero Dive" },
+{ id: 7, name: "Green Plant Mobius Ring" },
+{ id: 8, name: "Port Town Long Pipe" },
+{ id: 9, name: "Mute City Serial Gaps" },
+{ id: 10, name: "Fire Field Cylinder Knot" },
+{ id: 11, name: "Green Plant Intersection" },
+{ id: 12, name: "Casino Palace Double Branches" },
+{ id: 13, name: "Lightning Half Pipe" },
+{ id: 14, name: "Big Blue Ordeal" },
+{ id: 15, name: "Cosmo Terminal Trident" },
+{ id: 16, name: "Sand Ocean Lateral Shift" },
+{ id: 17, name: "Fire Field Undulation" },
+{ id: 18, name: "Aeropolis Dragon Slope" },
+{ id: 19, name: "Phantom Road Slim-Line Slits" },
+{ id: 20, name: "Aeropolis Screw Drive" },
+{ id: 21, name: "Outer Space Meteor Stream" },
+{ id: 22, name: "Port Town Cylinder Wave" },
+{ id: 23, name: "Lightning Thunder Road" },
+{ id: 24, name: "Green Plant Spiral" },
+{ id: 25, name: "Mute City Sonic Oval" }];
+
 export default Ember.Controller.extend({
-  queryParams: ['excluded'],
-  excluded: null,
+  queryParams: ['excludeMachines', 'excludeMaps'],
+  excludeMachines: null,
+  excludeMaps: null,
   machines: ships,
+  maps: maps,
 
   availableMachines: function () {
-    var excluded = this.get('excluded').split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMachines = this.get('excludeMachines').split(",").map(function(i) { return parseInt(i,10); });
     var machines = this.get('machines');
 
-    if (!excluded) { return machines; }
+    if (!excludeMachines) { return machines; }
 
     return machines.filter(function (item) {
-      return !excluded.contains(item.id);
+      return !excludeMachines.contains(item.id);
     });
-  }.property('excluded','machines'),
+  }.property('excludeMachines','machines'),
 
   excludedMachines: function () {
-    var excluded = this.get('excluded').split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMachines = this.get('excludeMachines').split(",").map(function(i) { return parseInt(i,10); });
     var machines = this.get('machines');
 
-    if (!excluded) { return machines; }
+    if (!excludeMachines) { return machines; }
 
     return machines.filter(function (item) {
-      return excluded.contains(item.id);
+      return excludeMachines.contains(item.id);
     });
-  }.property('excluded','machines')
+  }.property('excludeMachines','machines'),
+
+  availableMaps: function () {
+    var excludeMaps = this.get('excludeMaps').split(",").map(function(i) { return parseInt(i,10); });
+    var maps = this.get('maps');
+
+    if (!excludeMaps) { return maps; }
+
+    return maps.filter(function (item) {
+      return !excludeMaps.contains(item.id);
+    });
+  }.property('excludeMaps','maps'),
+
+  excludedMaps: function () {
+    var excludeMaps = this.get('excludeMaps').split(",").map(function(i) { return parseInt(i,10); });
+    var maps = this.get('maps');
+
+    if (!excludeMaps) { return maps; }
+
+    return maps.filter(function (item) {
+      return excludeMaps.contains(item.id);
+    });
+  }.property('excludeMaps','maps')
 
 });

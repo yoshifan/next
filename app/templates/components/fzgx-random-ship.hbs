@@ -1,0 +1,11 @@
+Excluded Machines
+<ul>
+{{#each machine in excludedMachines}}
+  <li>{{machine.name}}</li>
+{{/each}}
+</ul>
+Selected machine: {{currentMachine.name}}
+
+<p>
+  <button {{action 'randomize'}}>Randomize</button>
+</p>

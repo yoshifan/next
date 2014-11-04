@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('fzgx/randomizer', function() { });
 });
 
 export default Router;

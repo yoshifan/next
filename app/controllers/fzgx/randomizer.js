@@ -77,7 +77,7 @@ export default Ember.Controller.extend({
   maps: maps,
 
   availableMachines: function () {
-    var excludeMachines = this.get('excludeMachines').split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMachines = (this.get('excludeMachines') || "").split(",").map(function(i) { return parseInt(i,10); });
     var machines = this.get('machines');
 
     if (!excludeMachines) { return machines; }
@@ -88,7 +88,7 @@ export default Ember.Controller.extend({
   }.property('excludeMachines','machines'),
 
   excludedMachines: function () {
-    var excludeMachines = this.get('excludeMachines').split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMachines = (this.get('excludeMachines') || "").split(",").map(function(i) { return parseInt(i,10); });
     var machines = this.get('machines');
 
     if (!excludeMachines) { return machines; }
@@ -99,7 +99,7 @@ export default Ember.Controller.extend({
   }.property('excludeMachines','machines'),
 
   availableMaps: function () {
-    var excludeMaps = this.get('excludeMaps').split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMaps = (this.get('excludeMaps') || "").split(",").map(function(i) { return parseInt(i,10); });
     var maps = this.get('maps');
 
     if (!excludeMaps) { return maps; }
@@ -110,7 +110,7 @@ export default Ember.Controller.extend({
   }.property('excludeMaps','maps'),
 
   excludedMaps: function () {
-    var excludeMaps = this.get('excludeMaps').split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMaps = (this.get('excludeMaps') || "").split(",").map(function(i) { return parseInt(i,10); });
     var maps = this.get('maps');
 
     if (!excludeMaps) { return maps; }

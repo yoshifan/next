@@ -44,7 +44,7 @@ var ships = [{ id: 0, name: 'Dark Schneider' },
 
 var maps = [{ id: 0, name: "Mute City Twist Road" },
 { id: 1, name: "Casino Palace Split Oval" },
-{ id: 2, name: "Sand Ocean Surface Slopeide" },
+{ id: 2, name: "Sand Ocean Surface Slide" },
 { id: 3, name: "Lightning Loop Cross" },
 { id: 4, name: "Aeropolis Multiplex" },
 { id: 5, name: "Big Blue Drift Highway" },

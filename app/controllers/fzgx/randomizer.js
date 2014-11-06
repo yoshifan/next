@@ -69,12 +69,19 @@ var maps = [{ id: 0, name: "Mute City Twist Road" },
 { id: 24, name: "Green Plant Spiral" },
 { id: 25, name: "Mute City Sonic Oval" }];
 
+var cups = [{ id: 0, name: "Ruby" },
+{ id: 1, name: "Sapphire" },
+{ id: 2, name: "Emerald" },
+{ id: 3, name: "Diamond" },
+{ id: 4, name: "AX" }];
+
 export default Ember.Controller.extend({
   queryParams: ['excludeMachines', 'excludeMaps'],
   excludeMachines: [],
   excludeMaps: [],
   machines: ships,
   maps: maps,
+  cups: cups,
 
   availableMachines: function () {
     var excludeMachines = this.excludeMachines;

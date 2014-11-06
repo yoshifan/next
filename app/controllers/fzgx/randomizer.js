@@ -71,13 +71,13 @@ var maps = [{ id: 0, name: "Mute City Twist Road" },
 
 export default Ember.Controller.extend({
   queryParams: ['excludeMachines', 'excludeMaps'],
-  excludeMachines: null,
-  excludeMaps: null,
+  excludeMachines: [],
+  excludeMaps: [],
   machines: ships,
   maps: maps,
 
   availableMachines: function () {
-    var excludeMachines = (this.get('excludeMachines') || "").split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMachines = this.excludeMachines;
     var machines = this.get('machines');
 
     if (!excludeMachines) { return machines; }
@@ -88,7 +88,7 @@ export default Ember.Controller.extend({
   }.property('excludeMachines','machines'),
 
   excludedMachines: function () {
-    var excludeMachines = (this.get('excludeMachines') || "").split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMachines = this.excludeMachines;
     var machines = this.get('machines');
 
     if (!excludeMachines) { return machines; }
@@ -99,7 +99,7 @@ export default Ember.Controller.extend({
   }.property('excludeMachines','machines'),
 
   availableMaps: function () {
-    var excludeMaps = (this.get('excludeMaps') || "").split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMaps = this.excludeMaps;
     var maps = this.get('maps');
 
     if (!excludeMaps) { return maps; }
@@ -110,7 +110,7 @@ export default Ember.Controller.extend({
   }.property('excludeMaps','maps'),
 
   excludedMaps: function () {
-    var excludeMaps = (this.get('excludeMaps') || "").split(",").map(function(i) { return parseInt(i,10); });
+    var excludeMaps = this.excludeMaps;
     var maps = this.get('maps');
 
     if (!excludeMaps) { return maps; }
@@ -118,6 +118,24 @@ export default Ember.Controller.extend({
     return maps.filter(function (item) {
       return excludeMaps.contains(item.id);
     });
-  }.property('excludeMaps','maps')
+  }.property('excludeMaps','maps'),
+
+  actions: {
+    removeMachine: function(data) {
+      this.excludeMachines.pushObject(data.machine.id);
+    },
+
+    addMachine: function(data) {
+      this.excludeMachines.removeObject(data.machine.id);
+    },
+
+    removeMap: function removeMap(data) {
+      this.excludeMaps.pushObject(data.machine.id);
+    },
+
+    addMap: function addMap(data) {
+      this.excludeMaps.removeObject(data.machine.id);
+    }
+  }
 
 });

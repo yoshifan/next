@@ -1,11 +1,49 @@
-Excluded Machines
-<ul>
-{{#each machine in excludedMachines}}
-  <li>{{machine.name}}</li>
-{{/each}}
-</ul>
-Selected machine: {{currentMachine.name}}
+<style>
+  .selections {
+    margin: 1em;
+    height: auto;
+  }
 
-<p>
-  <button {{action 'randomize'}}>Randomize</button>
-</p>
+  .left-selection {
+    float: left;
+    width: 50%;
+  }
+
+  .right-selection {
+    float: right;
+    width: 50%;
+  }
+  
+  .current-selection {
+    clear: both;
+    margin: 0 auto;
+    text-align: center;
+  }
+</style>
+
+<div class="selections">
+  <ul class="left-selection">
+    Available selection:
+
+    {{#each machine in availableMachines}}
+      <li>{{machine.name}} <button {{action 'removeMachine' machine}}>-</button></li>
+    {{/each}}
+  </ul>
+  
+  <ul class="right-selection">
+    Excluded selection:
+
+    {{#each machine in excludedMachines}}
+      <li>{{machine.name}} <button {{action 'addMachine' machine}}>+</button></li>
+    {{/each}}
+  </ul>
+</div>
+
+<div class="current-selection">
+  Selected machine: <strong>{{currentMachine.name}}</strong>
+  
+  <p>
+    <button {{action 'randomize'}}>Randomize</button>
+  </p>
+</div>
+

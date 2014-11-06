@@ -31,6 +31,7 @@
     "express": "^4.8.5",
     "glob": "^4.0.5",
     "ember-cli-divshot": "~0.1.5",
-    "ember-cli-bootstrap": "0.0.12"
+    "ember-cli-bootstrap": "0.0.12",
+    "ember-data-hal-adapter": "~0.1.0"
   }
 }

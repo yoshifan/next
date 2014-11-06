@@ -23,7 +23,7 @@
 
 <div class="selections">
   <ul class="left-selection">
-    Available selection:
+    Available selections:
 
     {{#each machine in availableMachines}}
       <li>{{machine.name}} <button {{action 'removeMachine' machine}}>-</button></li>
@@ -31,7 +31,7 @@
   </ul>
   
   <ul class="right-selection">
-    Excluded selection:
+    Excluded selections:
 
     {{#each machine in excludedMachines}}
       <li>{{machine.name}} <button {{action 'addMachine' machine}}>+</button></li>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="current-selection">
-  Selected machine: <strong>{{currentMachine.name}}</strong>
+  Current selection: <strong>{{currentMachine.name}}</strong>
   
   <p>
     <button {{action 'randomize'}}>Randomize</button>

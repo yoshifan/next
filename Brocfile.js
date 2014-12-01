@@ -1,6 +1,8 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var pickFiles = require('broccoli-static-compiler');
+
 
 var app = new EmberApp();
 
@@ -16,9 +18,19 @@ var app = new EmberApp();
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
+app.import('bower_components/webcomponentsjs/webcomponents.js');
 app.import('bower_components/underscore/underscore.js');
 app.import('bower_components/underscore-contrib/dist/underscore-contrib.js');
-app.import('bower_components/react/react.js');
+app.import('bower_components/polymer/polymer.js');
+app.import('bower_components/polymer/layout.html');
+app.import('bower_components/polymer/polymer.html');
+app.import('bower_components/flag-icon/flag-icon.html');
+app.import('bower_components/loading/loading-cylon.svg');
 
+var extraAssets = pickFiles('bower_components/flag-icon', {
+  srcDir: '/',
+  files: ['**/*.gif', '**/*.png'],
+  destDir: '/flag-icon'
+});
 
-module.exports = app.toTree();
+module.exports = app.toTree(extraAssets);

@@ -12,8 +12,10 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
         <ul class="nav navbar-nav">
-          <li>{{#link-to 'fzgx/randomizer' itemName="a"}}F-Zero GX Randomizer{{/link-to}}</li>
-          <li>{{#link-to 'fzmv/faq' itemName="a"}}F-Zero MV FAQ{{/link-to}}</li>
+          {{#link-to 'players' tagName="li"}}<a href="/players">Players</a>{{/link-to}}
+          <li><a href="/">Ladders</a></li>
+          {{#link-to 'fzgx/randomizer' tagName="li"}}<a href="fzgx/randomizer">F-Zero GX Randomizer</a>{{/link-to}}
+          {{#link-to 'fzmv/faq' tagName="li"}}<a href="fzmv/faq">F-Zero MV FAQ</a>{{/link-to}}
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>

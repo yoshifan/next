@@ -1,8 +1,5 @@
-// import DS from 'ember-data';
-//
-// export default DS.RESTAdapter.extend({
-// });
-import Adapter from 'ember-data-hal-adapter/hal-adapter';
+import DS from 'ember-data';
 
-export default Adapter.extend({
+export default DS.ActiveModelAdapter.extend({
+  // namespace: '__/proxy/fzero-api'
 });

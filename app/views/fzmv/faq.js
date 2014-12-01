@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import React from 'npm:react';
 import JetVermillionCode from '../../react/jet-vermillion-code';
 
 export default Ember.View.extend({

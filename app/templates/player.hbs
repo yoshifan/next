@@ -1,3 +1,19 @@
-{{username}}
+<style>
+  .user-details > .avatar {
+    background-color: #becbd8;
+  }
+</style>
+
+<div class="container user-details">
+  <div class="row">
+    <div class="col-md-3 avatar">
+      {{{avatarImage}}}
+    </div>
+    
+    <div class="col-md-9 details">
+      {{model.username}}
+    </div>
+  </div>
+</div>
 
 {{outlet}}

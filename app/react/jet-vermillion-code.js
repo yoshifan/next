@@ -1,3 +1,6 @@
+import React from 'npm:react';
+import jetVermillionGenerator from 'npm:jet-vermillion-generator';
+
 var UsernameInput = React.createClass({displayName: 'UsernameInput',
   handleChange: function() {
     this.props.onUsernameInput(this.refs.usernameTextInput.getDOMNode().value
@@ -5,7 +8,6 @@ var UsernameInput = React.createClass({displayName: 'UsernameInput',
   },
 
   render: function() {
-    var userName = null;
     return (
       React.createElement("p", null,
         React.createElement("label", {htmlFor: "player-name"}, "Player name (up to 8 characters)"), React.createElement("br", null),

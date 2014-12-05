@@ -25,7 +25,6 @@ app.import('bower_components/polymer/polymer.js');
 app.import('bower_components/polymer/layout.html');
 app.import('bower_components/polymer/polymer.html');
 app.import('bower_components/flag-icon/flag-icon.html');
-app.import('bower_components/loading/loading-cylon.svg');
 
 var extraAssets = pickFiles('bower_components/flag-icon', {
   srcDir: '/',

@@ -17,7 +17,6 @@
     "underscore-contrib": "~0.3.0",
     "flag-icon": "~0.7.0",
     "webcomponentsjs": "~0.5.0",
-    "polymer-ui-card": "Polymer/polymer-ui-card#~0.3.0",
-    "loading": "*"
+    "polymer-ui-card": "Polymer/polymer-ui-card#~0.3.0"
   }
 }

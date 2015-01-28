@@ -63,5 +63,3 @@ export default React.createClass({displayName: 'JetVermillionCode',
     );
   }
 });
-
-// React.renderComponent(React.createElement(JetVermillionCode, null), document.body);

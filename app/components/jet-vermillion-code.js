@@ -8,6 +8,6 @@ export default Ember.Component.extend({
   generatedCode: '',
 
   generateCode: function() {
-    this.set('generatedCode', jetVermillionGenerator.generate(this.get('username')))
+    this.set('generatedCode', jetVermillionGenerator.generate(this.get('username')));
   }.observes('username')
 });

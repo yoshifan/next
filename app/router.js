@@ -12,6 +12,7 @@ Router.map(function() {
   this.resource('fzgx/randomizer', function() { });
   this.route('fzmv/faq');
   this.route('players');
+  this.route('ladders');
   this.resource('snes');
   this.resource('mv');
   this.resource('x');

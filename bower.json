@@ -18,5 +18,9 @@
     "polymer-ui-card": "Polymer/polymer-ui-card#~0.3.0",
     "ember-qunit-notifications": "0.0.5",
     "qunit": "~1.17.1"
+  },
+  "resolutions": {
+    "polymer": ">=0.5.1",
+    "core-component-page": "^0.5"
   }
 }

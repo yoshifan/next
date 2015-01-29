@@ -1,3 +1,4 @@
+import Ember from "ember";
 import {
   moduleForComponent,
   test
@@ -8,14 +9,17 @@ moduleForComponent('jet-vermillion-code', 'JetVermillionCodeComponent', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it renders', function() {
-  expect(2);
+test('it generates code for username "LOCKS"', function() {
+  expect(1);
 
   // creates the component instance
   var component = this.subject();
-  equal(component._state, 'preRender');
 
   // appends the component to the page
-  this.append();
-  equal(component._state, 'inDOM');
+  var $component = this.append();
+
+  Ember.run(function() {
+    component.set('username', 'LOCKS');
+  });
+  equal($component.find('[name=vermillion-code]').val(), 'W-XX9NV8A+30');
 });

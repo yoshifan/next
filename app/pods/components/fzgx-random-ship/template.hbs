@@ -13,7 +13,7 @@
     float: right;
     width: 50%;
   }
-  
+
   .current-selection {
     clear: both;
     margin: 0 auto;
@@ -29,7 +29,7 @@
       <li>{{machine.name}} <button {{action 'removeMachine' machine}}>-</button></li>
     {{/each}}
   </ul>
-  
+
   <ul class="right-selection">
     Excluded selections:
 
@@ -41,9 +41,8 @@
 
 <div class="current-selection">
   Current selection: <strong>{{currentMachine.name}}</strong>
-  
+
   <p>
     <button {{action 'randomize'}}>Randomize</button>
   </p>
 </div>
-

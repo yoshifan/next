@@ -15,9 +15,6 @@ test('it generates code for username "LOCKS"', function() {
   // creates the component instance
   var component = this.subject();
 
-  // appends the component to the page
-  var $component = this.append();
-
   Ember.run(function() {
     component.set('username', 'LOCKS');
   });

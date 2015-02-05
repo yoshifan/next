@@ -4,11 +4,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var pickFiles = require('broccoli-static-compiler');
 
 
-var app = new EmberApp({
-  'ember-cli-bootstrap': {
-    'importBootstrapJS': false
-  }
-});
+var app = new EmberApp();
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -27,6 +23,16 @@ app.import('bower_components/polymer/polymer.js');
 app.import('bower_components/polymer/layout.html');
 app.import('bower_components/polymer/polymer.html');
 app.import('bower_components/flag-icon/flag-icon.html');
+
+// bootstrap
+app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', { destDir: 'assets' });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', { destDir: 'fonts' });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf', { destDir: 'fonts' });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg', { destDir: 'fonts' });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', { destDir: 'fonts' });
+app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+
 
 var extraAssets = pickFiles('bower_components/flag-icon', {
   srcDir: '/',

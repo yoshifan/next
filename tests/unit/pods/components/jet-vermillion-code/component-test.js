@@ -21,5 +21,5 @@ test('it generates code for username "LOCKS"', function() {
   Ember.run(function() {
     component.set('username', 'LOCKS');
   });
-  equal($component.find('[name=vermillion-code]').val(), 'W-XX9NV8A+30');
+  equal(component.get('generatedCode'), 'W-XX9NV8A+30');
 });

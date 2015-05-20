@@ -6,19 +6,19 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('games');
-  this.resource('game', { path: 'games/:game_id' }, function() { });
-  this.resource('player', { path: 'players/:player_id' }, function() { });
-  this.resource('fzgx/randomizer', function() { });
+  this.route('games');
+  this.route('game', { path: 'games/:game_id' }, function() { });
+  this.route('player', { path: 'players/:player_id' }, function() { });
+  this.route('fzgx/randomizer', function() { });
   this.route('fzmv/faq');
   this.route('players');
   this.route('ladders');
-  this.resource('snes');
-  this.resource('mv');
-  this.resource('x');
-  this.resource('gpl');
-  this.resource('gx');
-  this.resource('cx');
+  this.route('snes');
+  this.route('mv');
+  this.route('x');
+  this.route('gpl');
+  this.route('gx');
+  this.route('cx');
 });
 
 export default Router;

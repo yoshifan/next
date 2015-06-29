@@ -3,13 +3,13 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('player', 'Player', {
+moduleForModel('fzmv/faq', 'FzmvFaq', {
   // Specify the other units that are required for this test.
   needs: []
 });
 
-test('it exists', function(assert) {
+test('it exists', function() {
   var model = this.subject();
   // var store = this.store();
-  assert.ok(!!model);
+  ok(!!model);
 });

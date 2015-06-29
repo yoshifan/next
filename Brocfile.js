@@ -19,9 +19,9 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 app.import('bower_components/webcomponentsjs/webcomponents.js');
-app.import('bower_components/polymer/polymer.js');
-app.import('bower_components/polymer/layout.html');
-app.import('bower_components/polymer/polymer.html');
+app.import('bower_components/polymer/polymer.js', { destDir: 'polymer' });
+app.import('bower_components/polymer/layout.html', { destDir: 'polymer' });
+app.import('bower_components/polymer/polymer.html', { destDir: 'polymer' });
 app.import('bower_components/flag-icon/flag-icon.html');
 
 // bootstrap

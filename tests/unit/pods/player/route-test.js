@@ -1,9 +1,6 @@
-import {
-  moduleFor,
-  test
-} from 'ember-qunit';
+import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:fzmv/faq', 'FzmvFaqRoute', {
+moduleFor('route:player', 'Unit | Route | player', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

@@ -1,0 +1,32 @@
+<style>
+  table.ladder {
+    width: 100%;
+  }
+  table.ladder thead {
+    font-weight: bold;
+  }
+  table.ladder tbody tr:nth-child(even) {
+    background-color: #DDDDDD;
+  }
+</style>
+
+<h1>F-Zero SNES Ladder</h1>
+
+<table class="ladder">
+    <thead>
+        <tr>
+            <td>Rank</td>
+            <td>Player</td>
+            <td>Last Update</td>
+            <td>SRPR Score</td>
+            <td>AF Score</td>
+            <td>Course Total</td>
+            <td>Lap Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each sortedEntries as |entry index|}}
+            {{tr-ladder entry=entry index=index}}
+        {{/each}}
+    </tbody>
+</table>

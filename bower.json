@@ -15,10 +15,11 @@
     "ember-resolver": "~0.1.15",
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
-    "qunit": "~1.17.1"
+    "qunit": "~1.17.1",
+    "polymer": "^0.5",
+    "ember-cli-moment-shim": "~0.2.0"
   },
   "resolutions": {
-    "webcomponentsjs": "~0.5.0",
-    "polymer": "^0.5"
+    "webcomponentsjs": "~0.5.0"
   }
 }

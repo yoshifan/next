@@ -1,5 +1,7 @@
 import DS from 'ember-data';
 
-export default DS.ActiveModelAdapter.extend({
+const { ActiveModelAdapter } = DS;
+
+export default ActiveModelAdapter.extend({
   namespace: '__/proxy/fzero-api'
 });

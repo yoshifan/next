@@ -22,7 +22,6 @@ Router.map(function() {
   this.route('gx');
   this.route('cx');
   this.route('records');
-  this.route('blargh');
 });
 
 export default Router;

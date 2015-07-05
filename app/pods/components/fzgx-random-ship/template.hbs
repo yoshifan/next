@@ -25,7 +25,7 @@
   <ul class="left-selection">
     Available selections:
 
-    {{#each machine in availableMachines}}
+    {{#each availableMachines as |machine|}}
       <li>{{machine.name}} <button {{action 'removeMachine' machine}}>-</button></li>
     {{/each}}
   </ul>
@@ -33,7 +33,7 @@
   <ul class="right-selection">
     Excluded selections:
 
-    {{#each machine in excludedMachines}}
+    {{#each excludedMachines as |machine|}}
       <li>{{machine.name}} <button {{action 'addMachine' machine}}>+</button></li>
     {{/each}}
   </ul>

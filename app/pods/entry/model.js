@@ -5,6 +5,8 @@ export default DS.Model.extend({
   lap: DS.attr('number'),
   speed: DS.attr('number'),
   lastChange: DS.attr(),
+  afScore: DS.attr('number'),
+  srprScore: DS.attr('number'),
 
   ladder: DS.belongsTo(),
   player: DS.belongsTo()

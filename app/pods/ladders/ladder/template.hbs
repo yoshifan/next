@@ -26,7 +26,7 @@
     </thead>
     <tbody>
         {{#each sortedEntries as |entry index|}}
-            {{tr-ladder entry=entry index=index}}
+            {{tr-ladder entries=sortedEntries entry=entry index=index}}
         {{/each}}
     </tbody>
 </table>

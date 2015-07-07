@@ -35,7 +35,7 @@
     "ember-data": "^1.13.4",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
-    "ember-truth-helpers": "0.0.5",
+    "ember-truth-helpers": "1.0.0",
     "glob": "^4.5.3",
     "jet-vermillion-generator": "^0.1.1",
     "moment": "^2.10.3"

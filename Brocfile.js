@@ -18,11 +18,6 @@ var app = new EmberApp();
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
-app.import('bower_components/webcomponentsjs/webcomponents.js');
-app.import('bower_components/polymer/polymer.js', { destDir: 'polymer' });
-app.import('bower_components/polymer/layout.html', { destDir: 'polymer' });
-app.import('bower_components/polymer/polymer.html', { destDir: 'polymer' });
-app.import('bower_components/flag-icon/flag-icon.html');
 
 // bootstrap
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
@@ -33,11 +28,4 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.s
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', { destDir: 'fonts' });
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
-
-var extraAssets = pickFiles('bower_components/flag-icon', {
-  srcDir: '/',
-  files: ['**/*.gif', '**/*.png'],
-  destDir: '/flag-icon'
-});
-
-module.exports = app.toTree(extraAssets);
+module.exports = app.toTree();

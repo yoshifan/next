@@ -7,7 +7,9 @@ export default Ember.Component.extend({
     return this.get('index') + 1;
   }),
 
-  previousSrprScore: Ember.computed('entry.srprScore', function() {
+  scoreDifferential: Ember.computed('entry.srprScore', function() {
+    if (this.get('index') === 0) { return; }
+
     let previousScore = this.get('entries.arrangedContent').objectAt(this.get('index')-1).get('srprScore');
     let currentScore = this.get('entry.srprScore');
 

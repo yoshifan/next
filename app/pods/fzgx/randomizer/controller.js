@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var ships = [{ id: 0, name: 'Dark Schneider' },
+const machines = [{ id: 0, name: 'Dark Schneider' },
 { id: 1, name: 'Red Gazelle' },
 { id: 2, name: 'White Cat' },
 { id: 3, name: 'Golden Fox' },
@@ -42,7 +42,7 @@ var ships = [{ id: 0, name: 'Dark Schneider' },
 { id: 39, name: 'Rolling Turtle' },
 { id: 40, name: 'Rainbow Phoenix' }];
 
-var maps = [{ id: 0, name: "Mute City Twist Road" },
+const maps = [{ id: 0, name: "Mute City Twist Road" },
 { id: 1, name: "Casino Palace Split Oval" },
 { id: 2, name: "Sand Ocean Surface Slide" },
 { id: 3, name: "Lightning Loop Cross" },
@@ -69,23 +69,55 @@ var maps = [{ id: 0, name: "Mute City Twist Road" },
 { id: 24, name: "Green Plant Spiral" },
 { id: 25, name: "Mute City Sonic Oval" }];
 
-var cups = [{ id: 0, name: "Ruby" },
+const cups = [{ id: 0, name: "Ruby" },
 { id: 1, name: "Sapphire" },
 { id: 2, name: "Emerald" },
 { id: 3, name: "Diamond" },
 { id: 4, name: "AX" }];
 
 export default Ember.Controller.extend({
-  queryParams: ['excludeMachines', 'excludeMaps'],
+  queryParams: ['excludedCupsParam', 'excludeMachines', 'excludeMaps'],
+
+  excludedCupsParam: [],
   excludeMachines: [],
   excludeMaps: [],
-  machines: ships,
-  maps: maps,
-  cups: cups,
+
+  cups: null,
+  machines: null,
+  maps: null,
+
+  initializeProperties: Ember.on('init', function() {
+    this.set('cups', cups);
+    this.set('machines', machines);
+    this.set('maps', maps);
+  }),
+
+  availableCups: function() {
+    const excludedCupsParam = this.get('excludedCupsParam');
+    const cups = this.get('cups');
+
+    if (!excludedCupsParam) { return cups; }
+
+    return cups.filter(function (item) {
+      return !excludedCupsParam.contains(item.id);
+    });
+
+}.property('excludedCupsParam', 'cups'),
+
+  excludedCups: function () {
+    const excludedCupsParam = this.get('excludedCupsParam');
+    const cups = this.get('cups');
+
+    if (!excludedCupsParam) { return cups; }
+
+    return cups.filter(function (item) {
+      return excludedCupsParam.contains(item.id);
+    });
+  }.property('excludedCupsParam','cups'),
 
   availableMachines: function () {
-    var excludeMachines = this.excludeMachines;
-    var machines = this.get('machines');
+    const excludeMachines = this.excludeMachines;
+    const machines = this.get('machines');
 
     if (!excludeMachines) { return machines; }
 
@@ -95,8 +127,8 @@ export default Ember.Controller.extend({
   }.property('excludeMachines','machines'),
 
   excludedMachines: function () {
-    var excludeMachines = this.excludeMachines;
-    var machines = this.get('machines');
+    const excludeMachines = this.excludeMachines;
+    const machines = this.get('machines');
 
     if (!excludeMachines) { return machines; }
 
@@ -106,8 +138,8 @@ export default Ember.Controller.extend({
   }.property('excludeMachines','machines'),
 
   availableMaps: function () {
-    var excludeMaps = this.excludeMaps;
-    var maps = this.get('maps');
+    const excludeMaps = this.excludeMaps;
+    const maps = this.get('maps');
 
     if (!excludeMaps) { return maps; }
 
@@ -117,8 +149,8 @@ export default Ember.Controller.extend({
   }.property('excludeMaps','maps'),
 
   excludedMaps: function () {
-    var excludeMaps = this.excludeMaps;
-    var maps = this.get('maps');
+    const excludeMaps = this.excludeMaps;
+    const maps = this.get('maps');
 
     if (!excludeMaps) { return maps; }
 
@@ -128,20 +160,11 @@ export default Ember.Controller.extend({
   }.property('excludeMaps','maps'),
 
   actions: {
-    removeMachine: function(data) {
-      this.excludeMachines.pushObject(data.machine.id);
+    addElement(collection, element) {
+      collection.removeObject(element.id);
     },
-
-    addMachine: function(data) {
-      this.excludeMachines.removeObject(data.machine.id);
-    },
-
-    removeMap: function removeMap(data) {
-      this.excludeMaps.pushObject(data.machine.id);
-    },
-
-    addMap: function addMap(data) {
-      this.excludeMaps.removeObject(data.machine.id);
+    removeElement(collection, element) {
+      collection.pushObject(element.id);
     }
   }
 

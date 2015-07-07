@@ -26,7 +26,7 @@
     Available selections:
 
     {{#each availableMachines as |machine|}}
-      <li>{{machine.name}} <button {{action 'removeMachine' machine}}>-</button></li>
+      <li>{{machine.name}} <button {{action 'removeElement' machine}}>-</button></li>
     {{/each}}
   </ul>
 
@@ -34,7 +34,7 @@
     Excluded selections:
 
     {{#each excludedMachines as |machine|}}
-      <li>{{machine.name}} <button {{action 'addMachine' machine}}>+</button></li>
+      <li>{{machine.name}} <button {{action 'addElement' machine}}>+</button></li>
     {{/each}}
   </ul>
 </div>

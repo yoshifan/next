@@ -3,23 +3,23 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   currentMachine: null,
 
-  randomize: function() {
+  randomize: Ember.on(function() {
     var index = Math.floor(Math.random() * (this.get('availableMachines.length') - 0) + 0);
 
     this.set('currentMachine', this.get('availableMachines')[index]);
-  }.on('init'),
+  }),
 
   actions: {
-    removeMachine: function(machine) {
-      this.sendAction('removeMachine', {
-        machine: machine
-      });
+    addElement(element) {
+      this.attrs.addElement(element);
     },
 
-    addMachine: function(machine) {
-      this.sendAction('addMachine', {
-        machine: machine
-      });
+    removeElement(element) {
+      this.attrs.removeElement(element);
+    },
+
+    randomize: function() {
+      this.randomize();
     }
   }
 

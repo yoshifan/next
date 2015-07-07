@@ -8,6 +8,6 @@ export default DS.Model.extend({
   afScore: DS.attr('number'),
   srprScore: DS.attr('number'),
 
-  ladder: DS.belongsTo(),
-  player: DS.belongsTo()
+  ladder: DS.belongsTo('ladder', { async: false }),
+  player: DS.belongsTo('player', { async: false })
 });

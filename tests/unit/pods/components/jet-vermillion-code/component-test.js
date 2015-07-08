@@ -9,8 +9,8 @@ moduleForComponent('jet-vermillion-code', 'JetVermillionCodeComponent', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('it generates code for username "LOCKS"', function() {
-  expect(1);
+test('it generates code for username "LOCKS"', function(assert) {
+  assert.expect(1);
 
   // creates the component instance
   var component = this.subject();
@@ -18,5 +18,5 @@ test('it generates code for username "LOCKS"', function() {
   Ember.run(function() {
     component.set('username', 'LOCKS');
   });
-  equal(component.get('generatedCode'), 'W-XX9NV8A+30');
+  assert.equal(component.get('generatedCode'), 'W-XX9NV8A+30');
 });

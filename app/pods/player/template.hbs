@@ -7,11 +7,45 @@
 <div class="container user-details">
   <div class="row">
     <div class="col-md-3 avatar">
-      {{{avatarImage}}}
+      <img src="{{fullAvatarLink}}">
     </div>
 
     <div class="col-md-9 details">
-      {{model.username}}
+      <p><srong>username</srong>{{model.username}}</p>
+      <p><strong>from</strong> {{model.country}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="cold-md-12">
+      <h1>Records</h1>
+
+      <table style="width: 100%">
+        <thead>
+          <td>Ladder</td>
+          <td>Cup</td>
+          <td>Course</td>
+          <td>Region</td>
+          <td>Value</td>
+          <td>Ship</td>
+          <td>Record Type</td>
+          <td>Last Updated</td>
+        </thead>
+        <tbody>
+          {{#each model.records as |record|}}
+            <tr>
+              <td>{{record.ladder_id}}</td>
+              <td>{{record.cup_id}}</td>
+              <td>{{record.course_id}}</td>
+              <td>{{record.region}}</td>
+              <td>{{record.value}}</td>
+              <td>{{record.ship}}</td>
+              <td>{{record.record_type}}</td>
+              <td>{{record.last_change}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

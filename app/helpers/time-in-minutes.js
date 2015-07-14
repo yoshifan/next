@@ -7,4 +7,4 @@ export function timeInMinutes(params/*, hash*/) {
   return "" + time.minutes() + "'" + time.seconds() + '"' + time.milliseconds();
 }
 
-export default Ember.HTMLBars.makeBoundHelper(timeInMinutes);
+export default Ember.Helper.helper(timeInMinutes);

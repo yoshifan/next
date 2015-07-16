@@ -38,6 +38,7 @@
     "ember-truth-helpers": "1.0.0",
     "glob": "^4.5.3",
     "jet-vermillion-generator": "^0.1.1",
+    "liquid-fire": "0.20.4",
     "moment": "^2.10.3"
   }
 }

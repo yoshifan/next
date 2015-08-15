@@ -3,7 +3,11 @@
 <td>{{entry.lastChange}}</td>
 <td>
   {{entry.srprScore}}
-  <span style="color: red;">{{scoreDifferential}}</span>
+  {{#if (eq 0 scoreDifferential)}}
+    <span style="color: green;">=</span>
+  {{else}}
+    <span style="color: red;">{{scoreDifferential}}</span>
+  {{/if}}
 </td>
 <td>{{entry.afScore}}</td>
 <td>{{time-in-minutes entry.time}}</td>

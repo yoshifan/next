@@ -75,7 +75,9 @@ const cups = [{ id: 0, name: "Ruby" },
 { id: 3, name: "Diamond" },
 { id: 4, name: "AX" }];
 
-export default Ember.Controller.extend({
+const { Controller, on, computed } = Ember;
+
+export default Controller.extend({
   queryParams: ['excludedCupsParam', 'excludeMachines', 'excludeMaps'],
 
   excludedCupsParam: [],
@@ -86,13 +88,13 @@ export default Ember.Controller.extend({
   machines: null,
   maps: null,
 
-  initializeProperties: Ember.on('init', function() {
+  initializeProperties: on('init', function() {
     this.set('cups', cups);
     this.set('machines', machines);
     this.set('maps', maps);
   }),
 
-  availableCups: function() {
+  availableCups: computed('excludedCupsParam', 'cups', function() {
     const excludedCupsParam = this.get('excludedCupsParam');
     const cups = this.get('cups');
 
@@ -101,10 +103,9 @@ export default Ember.Controller.extend({
     return cups.filter(function (item) {
       return !excludedCupsParam.contains(item.id);
     });
+  }),
 
-}.property('excludedCupsParam', 'cups'),
-
-  excludedCups: function () {
+  excludedCups: computed('excludedCupsParam', 'cups', function () {
     const excludedCupsParam = this.get('excludedCupsParam');
     const cups = this.get('cups');
 
@@ -113,9 +114,9 @@ export default Ember.Controller.extend({
     return cups.filter(function (item) {
       return excludedCupsParam.contains(item.id);
     });
-  }.property('excludedCupsParam','cups'),
+  }),
 
-  availableMachines: function () {
+  availableMachines: computed('excludeMachines','machines', function () {
     const excludeMachines = this.excludeMachines;
     const machines = this.get('machines');
 
@@ -124,9 +125,9 @@ export default Ember.Controller.extend({
     return machines.filter(function (item) {
       return !excludeMachines.contains(item.id);
     });
-  }.property('excludeMachines','machines'),
+  }),
 
-  excludedMachines: function () {
+  excludedMachines: computed('excludeMachines', 'machines', function () {
     const excludeMachines = this.excludeMachines;
     const machines = this.get('machines');
 
@@ -135,9 +136,9 @@ export default Ember.Controller.extend({
     return machines.filter(function (item) {
       return excludeMachines.contains(item.id);
     });
-  }.property('excludeMachines','machines'),
+  }),
 
-  availableMaps: function () {
+  availableMaps: computed('excludeMaps', 'maps', function () {
     const excludeMaps = this.excludeMaps;
     const maps = this.get('maps');
 
@@ -146,9 +147,9 @@ export default Ember.Controller.extend({
     return maps.filter(function (item) {
       return !excludeMaps.contains(item.id);
     });
-  }.property('excludeMaps','maps'),
+  }),
 
-  excludedMaps: function () {
+  excludedMaps: computed('excludeMaps', 'maps', function () {
     const excludeMaps = this.excludeMaps;
     const maps = this.get('maps');
 
@@ -157,7 +158,7 @@ export default Ember.Controller.extend({
     return maps.filter(function (item) {
       return excludeMaps.contains(item.id);
     });
-  }.property('excludeMaps','maps'),
+  }),
 
   actions: {
     addElement(collection, element) {

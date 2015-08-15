@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
+const { Controller } = Ember;
+
+export default Controller.extend({
   queryParams: ['page'],
   playersLoading: true,
 });

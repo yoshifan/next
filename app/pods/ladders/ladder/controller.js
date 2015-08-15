@@ -1,11 +1,15 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend(Ember.SortableMixin, {
-  sortedEntries: Ember.computed('model.entries.[]', function() {
-    return Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, {
-      sortProperties: ['srprScore'],
-      sortAscending: false,
-      content: this.get('model.entries')
-    });
+const { Controller, computed } = Ember;
+
+export default Controller.extend({
+  sortedEntries: computed.sort('model.entries', function(a, b) {
+    if (a.get('srprScore') < b.get('srprScore')) {
+      return 1;
+    } else {
+      return -1;
+    }
+
+    return 0;
   })
 });

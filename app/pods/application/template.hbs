@@ -17,6 +17,19 @@
           {{#link-to 'ladders' tagName="li"}}<a href="ladders">Ladders</a>{{/link-to}}
           {{#link-to 'fzgx/randomizer' tagName="li"}}<a href="fzgx/randomizer">F-Zero GX Randomizer</a>{{/link-to}}
           {{#link-to 'fzmv/faq' tagName="li"}}<a href="fzmv/faq">F-Zero MV FAQ</a>{{/link-to}}
+          <li>
+            {{#if session.isAuthenticated}}
+              <a {{action 'invalidateSession'}}>log out</a>
+            {{else}}
+              <a {{action 'authenticateSession'}}>login</a>
+            {{/if}}
+
+          </li>
+          {{#if session.isAuthenticated}}
+            <li>
+              Hi {{session.username}}
+            </li>
+          {{/if}}
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>

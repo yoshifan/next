@@ -22,6 +22,8 @@ Router.map(function() {
   this.route('gx');
   this.route('cx');
   this.route('records');
+  this.route('login');
+  this.route('profile');
 });
 
 export default Router;

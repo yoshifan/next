@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const { Component, on } = Ember;
+
+export default Component.extend({
   currentMachine: null,
 
-  randomize: Ember.on(function() {
+  randomize: on(function() {
     var index = Math.floor(Math.random() * (this.get('availableMachines.length') - 0) + 0);
 
     this.set('currentMachine', this.get('availableMachines')[index]);
@@ -18,7 +20,7 @@ export default Ember.Component.extend({
       this.attrs.removeElement(element);
     },
 
-    randomize: function() {
+    randomize() {
       this.randomize();
     }
   }

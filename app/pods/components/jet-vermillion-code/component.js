@@ -1,13 +1,15 @@
 import Ember from 'ember';
 import jetVermillionGenerator from 'npm:jet-vermillion-generator';
 
-export default Ember.Component.extend({
+const { Component, observer } = Ember;
+
+export default Component.extend({
   classNames: ['generator'],
 
   username: '',
   generatedCode: '',
 
-  generateCode: function() {
+  generateCode: observer('username', function() {
     this.set('generatedCode', jetVermillionGenerator.generate(this.get('username')));
-  }.observes('username')
+  })
 });

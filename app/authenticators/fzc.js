@@ -3,7 +3,7 @@ import Base from 'simple-auth/authenticators/base';
 import ajax from 'ic-ajax';
 
 export default Base.extend({
-  restore(data) {
+  restore(/*data*/) {
     return Ember.RSVP.reject();
   },
 
@@ -21,7 +21,7 @@ export default Base.extend({
     });
   },
 
-  invalidate(data) {
+  invalidate(/*data*/) {
     return Ember.RSVP.resolve();
   }
 });

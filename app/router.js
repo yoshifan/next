@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('player', { path: 'players/:player_id' }, function() { });
   this.route('fzgx/randomizer', function() { });
   this.route('fzmv/faq');
-  this.route('players');
+  this.route('players', function() { });
   this.route('ladders', function() {
     this.route('ladder', { path: ':ladder_id' });
   });

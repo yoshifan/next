@@ -1,9 +1,3 @@
 <h2>Players</h2>
 
-<ul>
-{{#each model as |player|}}
-  <li {{action 'focusPlayer'}}>{{#link-to 'player' player}}{{player.username}}{{/link-to}} <flag-icon key={{player.country}} img></flag-icon></li>
-{{/each}}
-</ul>
-
 {{outlet}}

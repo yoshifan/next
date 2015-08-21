@@ -1,8 +1,5 @@
 <div class="jumbotron">
-  <h1>
-    F-Zero Central
-  </h1>
-  <h2>Your favourite videogame series time trial community</h2>
+  <p>Your favourite videogame series time trial community</p>
 </div>
 
 <ul>
@@ -14,10 +11,14 @@
 </ul>
 
 <ul>
-  <li>{{#link-to 'snes' }}F-Zero (SNES){{/link-to}}</li>
-  <li>{{#link-to 'mv' }}F-Zero Maximum Velocity{{/link-to}}</li>
-  <li>{{#link-to 'x' }}F-Zero X{{/link-to}}</li>
-  <li>{{#link-to 'gx' }}F-Zero GX{{/link-to}}</li>
-  <li>{{#link-to 'gpl' }}F-Zero GPL{{/link-to}}</li>
-  <li>{{#link-to 'cx' }}F-Zero Climax{{/link-to}}</li>
+  {{#each (group-by model 'game') as |game|}}
+    {{game.value}}
+    <li>
+      <ul>
+        {{#each game.items as |ladder|}}
+          <li>{{#link-to 'ladders.ladder' ladder.id}}{{ladder.name}}{{/link-to}}</li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
 </ul>

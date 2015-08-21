@@ -1,1 +1,12 @@
-{{#link-to 'ladders.ladder' '1'}}F-Zero SNES{{/link-to}}
+<ul>
+  {{#each laddersByGame as |game|}}
+    {{game.value}}
+    <li>
+      <ul>
+        {{#each game.items as |ladder|}}
+          <li>{{#link-to 'ladders.ladder' ladder.id}}{{ladder.name}}{{/link-to}}</li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>

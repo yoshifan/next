@@ -1,0 +1,12 @@
+<ul>
+{{#each model as |player|}}
+  <li {{action 'focusPlayer'}}>{{#link-to 'player' player}}{{player.username}}{{/link-to}} <flag-icon key={{player.country}} img></flag-icon></li>
+{{/each}}
+</ul>
+
+{{#unless (eq 1 page)}}
+<button {{action 'previous' page}}>previous</button>
+{{/unless}}
+<button {{action 'next' page}}>next</button>
+
+{{outlet}}

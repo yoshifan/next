@@ -11,7 +11,7 @@
 </ul>
 
 <ul>
-  {{#each (group-by model 'game') as |game|}}
+  {{#each (group-by model 'game.name') as |game|}}
     {{game.value}}
     <li>
       <ul>

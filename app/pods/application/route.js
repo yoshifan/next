@@ -5,6 +5,6 @@ const { Route } = Ember;
 
 export default Route.extend(ApplicationRouteMixin, {
   model() {
-    return this.store.findAll('ladder');
+    // return this.store.findAll('ladder');
   }
 });

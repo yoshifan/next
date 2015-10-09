@@ -7,5 +7,6 @@ export default Model.extend({
   country: attr(),
   avatar: attr(),
 
-  records: hasMany('record', { async: true })
+  records: hasMany('record', { async: true }),
+  totals: hasMany('total', { async: true })
 });

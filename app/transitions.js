@@ -4,7 +4,8 @@ export default function(){
   this.transition(
     this.fromRoute('ladders.index'),
     this.toRoute('ladders.ladder'),
-    this.use('toDown'));
+    this.use('toDown'),
+    this.reverse('toUp'));
 
   this.transition(
     this.fromRoute('index'),

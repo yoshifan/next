@@ -1,5 +1,8 @@
-import ActiveModelAdapter from 'active-model-adapter';
+import DS from 'ember-data';
 
-export default ActiveModelAdapter.extend({
-  namespace: '__/proxy/fzero-api'
+export default DS.JSONAPIAdapter.extend({
+  namespace: 'api',
+  headers: {
+    "Content-Type": "application/vnd.api+json"
+  }
 });

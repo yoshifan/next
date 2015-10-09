@@ -10,7 +10,8 @@ export default Base.extend({
   authenticate(options) {
     return ajax({
       type: "POST",
-      url: "login",
+      // url: "/__/proxy/fzero-api/login",
+      url: "/api/login",
       dataType: "json",
       data: {
         username: options.identification,

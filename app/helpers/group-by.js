@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 const {
   A,
-  computed,
   get,
   isPresent
 } = Ember;

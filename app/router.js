@@ -13,7 +13,7 @@ Router.map(function() {
   this.route('fzmv/faq');
   this.route('players', function() { });
   this.route('ladders', function() {
-    this.route('ladder', { path: ':ladder_id' });
+    this.route('ladder', { path: ':ladder_id' }, function() {});
   });
   this.route('snes');
   this.route('mv');

@@ -8,26 +8,50 @@
   table.ladder tbody tr:nth-child(even) {
     background-color: #DDDDDD;
   }
+
+  .sortable {
+      cursor: pointer;
+  }
+  .sortable::after {
+      content: '&#x25BC;'
+  }
 </style>
 
 <h1>{{model.game.name}}</h1>
 <h2>{{model.name}}</h2>
+
+<p><strong>sorting</strong>: {{totalsSorting}}</p>
 
 <table class="ladder">
     <thead>
         <tr>
             <td>Rank</td>
             <td>Player</td>
-            <td>Last Update</td>
-            <td>SRPR Score</td>
-            <td>AF Score</td>
-            <td>Course Total</td>
-            <td>Lap Total</td>
+            <td class="sortable" {{action (action 'switchSorting' 'lastChange')}}>Last Update</td>
+            <td class="sortable" {{action (action 'switchSorting' 'srpr')}}>SRPR Score</td>
+            <td class="sortable" {{action (action 'switchSorting' 'af')}}>AF Score</td>
+            <td class="sortable" {{action (action 'switchSorting' 'time')}}>Course Total</td>
+            <td class="sortable" {{action (action 'switchSorting' 'lap')}}>Lap Total</td>
         </tr>
     </thead>
     <tbody>
         {{#each sortedEntries as |entry index|}}
-            {{tr-ladder entries=sortedEntries entry=entry index=index}}
+            <tr>
+                <td>{{table-index index}}</td>
+                <td>{{#link-to 'player' entry.player.id}}{{entry.player.username}}{{/link-to}}</td>
+                <td>{{moment-format entry.lastChange "MMM DD, YYYY"}}</td>
+                <td>
+                  {{entry.srprScore}}
+                  {{#if (eq 0 (score-differential sortedEntries index entry.srpr))}}
+                    <span style="color: green;">=</span>
+                  {{else}}
+                    <span style="color: red;">{{score-differential sortedEntries index entry.srpr}}</span>
+                  {{/if}}
+                </td>
+                <td>{{entry.af}}</td>
+                <td>{{time-in-minutes entry.time}}</td>
+                <td>{{time-in-minutes entry.lap}}</td>
+            </tr>
         {{/each}}
     </tbody>
 </table>

@@ -45,7 +45,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.host = 'https://calm-eyrie-3253.herokuapp.com'
   }
 
   return ENV;

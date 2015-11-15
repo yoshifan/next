@@ -3,7 +3,8 @@ import Ember from 'ember';
 const {
   A,
   get,
-  isPresent
+  isPresent,
+  Helper
 } = Ember;
 
 export function groupBy(params/*, hash*/) {
@@ -26,4 +27,4 @@ export function groupBy(params/*, hash*/) {
   return groups;
 }
 
-export default Ember.Helper.helper(groupBy);
+export default Helper.helper(groupBy);

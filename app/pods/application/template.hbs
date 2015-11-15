@@ -21,7 +21,7 @@
             {{#if session.isAuthenticated}}
               <a {{action 'invalidateSession'}}>log out</a>
             {{else}}
-              <a {{action 'authenticateSession'}}>login</a>
+              {{#link-to 'login'}}login{{/link-to}}
             {{/if}}
 
           </li>

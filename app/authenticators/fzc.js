@@ -1,28 +1,24 @@
-import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
 import ajax from 'ic-ajax';
 
 export default Base.extend({
-  restore(/*data*/) {
-    return Ember.RSVP.reject();
-  },
+  // restore(data) {
+  //   debugger;
+  //   return Ember.RSVP.reject();
+  // },
 
-  authenticate(options) {
+  authenticate(identification, password) {
     return ajax({
       type: "POST",
       // url: "/__/proxy/fzero-api/login",
       url: "/api/login",
       dataType: "json",
       data: {
-        username: options.identification,
-        password: options.password
+        username: identification,
+        password: password
       }
     }).then(function(response) {
       return response.player;
     });
-  },
-
-  invalidate(/*data*/) {
-    return Ember.RSVP.resolve();
   }
 });

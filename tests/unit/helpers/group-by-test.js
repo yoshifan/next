@@ -5,6 +5,13 @@ module('Unit | Helper | group by');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  var result = groupBy(42);
-  assert.ok(result);
+  assert.expect(1);
+
+  const result = groupBy([{ id: 1, group: 'one' }, { id: 2, group: 'two' }, { id: 3, group: 'one' }],
+                         'group');
+
+  assert.equal(result, {
+    one: [{ id: 1, group: 'one' }, { id: 3, group: 'one' }],
+    two: [{ id: 2, group: 'two' }]
+  });
 });

@@ -1,16 +1,15 @@
 import Ember from 'ember';
 
-const { Controller } = Ember;
+const { Controller, inject } = Ember;
 
 export default Controller.extend({
-  session: Ember.inject.service('session'),
+  session: inject.service('session'),
 
   actions: {
     authenticate() {
       const { identification, password }  = this.getProperties('identification', 'password');
 
-      this.get('session').authenticate('authenticator:base',
-        identification, password);
+      this.get('session').authenticate('authenticator:fzc', identification, password);
     }
   }
 });

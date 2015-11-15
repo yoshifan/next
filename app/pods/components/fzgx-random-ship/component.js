@@ -13,11 +13,11 @@ export default Component.extend({
 
   actions: {
     addElement(element) {
-      this.attrs.addElement(element);
+      this.get('addElement')(element);
     },
 
     removeElement(element) {
-      this.attrs.removeElement(element);
+      this.get('removeElement')(element);
     },
 
     randomize() {

@@ -1,5 +1,4 @@
 import Base from 'ember-simple-auth/authenticators/base';
-import ajax from 'ic-ajax';
 
 export default Base.extend({
   // restore(data) {
@@ -8,7 +7,7 @@ export default Base.extend({
   // },
 
   authenticate(identification, password) {
-    return ajax({
+    return this.get('ajax').request({
       type: "POST",
       // url: "/__/proxy/fzero-api/login",
       url: "/api/login",

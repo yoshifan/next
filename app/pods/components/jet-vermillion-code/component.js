@@ -1,13 +1,17 @@
 import Ember from 'ember';
-import { generate } from 'npm:jet-vermillion-generator';
+import jv from 'npm:jet-vermillion-generator';
+import computed from 'ember-computed-decorators';
 
-const { Component, computed } = Ember;
+const { Component } = Ember;
 
 export default Component.extend({
   classNames: ['generator'],
+  queryParams: ['username'],
 
   username: '',
-  generatedCode: computed('username', function() {
-    return generate(this.get('username'));
-  })
+
+  @computed('username')
+  generatedCode(username) {
+    return jv.generate(username);
+  }
 });

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Controller, computed, on } = Ember;
+const { Controller, computed } = Ember;
 
 export default Controller.extend({
   queryParams: ['sortBy', 'sortOrder'],

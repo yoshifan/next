@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
-export function tableIndex(params/*, hash*/) {
-  const [index] = params;
-
+export function tableIndex([index]/*, hash*/) {
   return index+1;
 }
 

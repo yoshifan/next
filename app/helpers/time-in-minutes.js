@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import moment from 'npm:moment';
 
-export function timeInMinutes(params/*, hash*/) {
-  const time = moment.duration(params[0]);
+export function timeInMinutes([timeString]/*, hash*/) {
+  const time = moment.duration(timeString);
 
   return `${time.minutes()}'${time.seconds()}"${time.milliseconds()}`;
 }

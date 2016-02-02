@@ -7,6 +7,6 @@ module('Unit | Helper | time in minutes');
 test('it works', function(assert) {
   assert.expect(1);
 
-  var result = timeInMinutes(42);
-  assert.ok(result);
+  var result = timeInMinutes([2037360]);
+  assert.equal(result, `33'57"360`);
 });

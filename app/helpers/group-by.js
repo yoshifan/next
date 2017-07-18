@@ -7,10 +7,8 @@ const {
   Helper
 } = Ember;
 
-export function groupBy(params/*, hash*/) {
-  let [ collection, property ] = params;
+export function groupBy([items, property]/*, hash*/) {
   let groups = new A();
-  let items = collection;
 
   items.forEach(function(item) {
     let value = get(item, property);

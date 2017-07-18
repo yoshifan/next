@@ -10,5 +10,5 @@ test('it calculates the differential', function(assert) {
   const score = 20;
   const result = scoreDifferential([entries, index, score]);
 
-  assert.equal(result, 30);
+  assert.equal(result, -30);
 });

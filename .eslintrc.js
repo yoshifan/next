@@ -10,5 +10,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    // This rule gets a Broccoli build error
+    'no-unused-vars': 'off'
   }
 };

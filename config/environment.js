@@ -25,6 +25,11 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    // Custom ENV key: The JSONAPIAdapter's namespace.
+    // For dev environments it's easiest to run the API with no namespace,
+    // i.e. at localhost:<port> instead of localhost:<port>/<namespace>.
+    ENV.APP.apiNamespace = null;
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -46,6 +51,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.host = 'https://calm-eyrie-3253.herokuapp.com';
+
+    // Custom ENV key: The JSONAPIAdapter's namespace.
+    ENV.APP.apiNamespace = 'api';
   }
 
   return ENV;

@@ -7,7 +7,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   authorizer: 'authorizer:base',
 
   host: ENV.APP.host,
-  namespace: 'api',
+  namespace: ENV.APP.apiNamespace,
   headers: {
     "Content-Type": "application/vnd.api+json"
   }

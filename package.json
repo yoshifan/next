@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember s --proxy http://localhost:4000/",
+    "start": "ember s --proxy http://localhost:3000/",
     "start:production": "ember server --proxy https://calm-eyrie-3253.herokuapp.com",
     "test": "ember test"
   },

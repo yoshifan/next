@@ -1,0 +1,19 @@
+This file contains comments about package.json, since there's no particularly clean way to add comments directly in JSON files.
+
+ember-cli-babel
+Should be ^6.12.0, but JV generator only works with ^5.1.6 it seems.
+
+ember-cli-htmlbars-inline-precompile
+Should be ^1.0.2, but that requires ember-cli-babel 6.7.1 or above.
+
+ember-cli-qunit
+Updating this to 4.x.x makes the test runner hang on the first test. We need to port our test code to make the new version work: https://github.com/ember-cli/ember-cli-qunit/issues/183
+
+ember-cli-release
+Latest release was 2016 June, and the dependency deprecations have piled up. Might want to consider a replacement for this.
+
+ember-computed-decorators
+This should be updated to ember-decorators instead, but one of the JV generator tests only works with ember-computed-decorators.
+
+ember-pagefront
+Latest release was 2016 August. It also gets this command line error when doing `yarn run start`: `Cannot find module 'ember-cli/lib/ext/promise'`. So this package has been removed from dependencies. No replacement for its functionality so far.
